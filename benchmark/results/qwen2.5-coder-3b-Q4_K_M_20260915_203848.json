@@ -1,0 +1,687 @@
+{
+  "benchmark": {
+    "model_label": "qwen2.5-coder-3b-Q4_K_M",
+    "timestamp": "2026-09-15T20:38:48.411072",
+    "llama_base_url": "http://127.0.0.1:8080",
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 700,
+    "test_timeout_seconds": 10
+  },
+  "summary": {
+    "total_problems": 7,
+    "problems_passed": 7,
+    "problem_correctness_percent": 100.0,
+    "total_unit_tests": 43,
+    "unit_tests_passed": 43,
+    "unit_test_correctness_percent": 100.0,
+    "syntax_valid_percent": 100.0,
+    "format_compliance_percent": 0.0,
+    "average_generation_seconds": 28.60903149999545,
+    "average_approx_tokens_per_second": 3.320059385443571,
+    "total_benchmark_seconds": 204.56077360000927
+  },
+  "results": [
+    {
+      "name": "is_prime",
+      "category": "easy",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n```",
+      "extracted_code": "def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True",
+      "generation_seconds": 19.07787899998948,
+      "prompt_tokens": 121,
+      "completion_tokens": 57,
+      "approx_tokens_per_second": 2.9877535128528403,
+      "tests_passed": 10,
+      "tests_total": 10,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.10958320001373067,
+          "test_number": 1,
+          "expression": "is_prime(-1)",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07894440001109615,
+          "test_number": 2,
+          "expression": "is_prime(0)",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07953520002774894,
+          "test_number": 3,
+          "expression": "is_prime(1)",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07904229999985546,
+          "test_number": 4,
+          "expression": "is_prime(2)",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07489069999428466,
+          "test_number": 5,
+          "expression": "is_prime(3)",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07092520000878721,
+          "test_number": 6,
+          "expression": "is_prime(4)",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07184579997556284,
+          "test_number": 7,
+          "expression": "is_prime(17)",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07230030000209808,
+          "test_number": 8,
+          "expression": "is_prime(25)",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07293120003305376,
+          "test_number": 9,
+          "expression": "is_prime(97)",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.0753254999872297,
+          "test_number": 10,
+          "expression": "is_prime(100)",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "binary_search",
+      "category": "easy",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\ndef binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return -1\n```",
+      "extracted_code": "def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return -1",
+      "generation_seconds": 24.8813630999648,
+      "prompt_tokens": 132,
+      "completion_tokens": 89,
+      "approx_tokens_per_second": 3.5769744463930073,
+      "tests_passed": 8,
+      "tests_total": 8,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.11036370001966134,
+          "test_number": 1,
+          "expression": "binary_search([], 5)",
+          "expected": -1
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08123179996619001,
+          "test_number": 2,
+          "expression": "binary_search([1], 1)",
+          "expected": 0
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07003030000487342,
+          "test_number": 3,
+          "expression": "binary_search([1], 2)",
+          "expected": -1
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07502789999125525,
+          "test_number": 4,
+          "expression": "binary_search([1,3,5,7,9], 5)",
+          "expected": 2
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07388460001675412,
+          "test_number": 5,
+          "expression": "binary_search([1,3,5,7,9], 1)",
+          "expected": 0
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07334409997565672,
+          "test_number": 6,
+          "expression": "binary_search([1,3,5,7,9], 9)",
+          "expected": 4
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08020949998172,
+          "test_number": 7,
+          "expression": "binary_search([1,3,5,7,9], 6)",
+          "expected": -1
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08344310004031286,
+          "test_number": 8,
+          "expression": "binary_search([-10,-5,0,5,10], -5)",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "palindrome",
+      "category": "easy",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\nimport string\n\ndef is_palindrome(text):\n    # Remove punctuation and spaces, and convert to lowercase\n    cleaned_text = ''.join(char.lower() for char in text if char.isalnum())\n    \n    # Check if the cleaned text is equal to its reverse\n    return cleaned_text == cleaned_text[::-1]\n```",
+      "extracted_code": "import string\n\ndef is_palindrome(text):\n    # Remove punctuation and spaces, and convert to lowercase\n    cleaned_text = ''.join(char.lower() for char in text if char.isalnum())\n    \n    # Check if the cleaned text is equal to its reverse\n    return cleaned_text == cleaned_text[::-1]",
+      "generation_seconds": 19.663736400019843,
+      "prompt_tokens": 123,
+      "completion_tokens": 68,
+      "approx_tokens_per_second": 3.4581423701312115,
+      "tests_passed": 6,
+      "tests_total": 6,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.24185619998024777,
+          "test_number": 1,
+          "expression": "is_palindrome('racecar')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.21942849998595193,
+          "test_number": 2,
+          "expression": "is_palindrome('hello')",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.16063600004417822,
+          "test_number": 3,
+          "expression": "is_palindrome('RaceCar')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.12378150003496557,
+          "test_number": 4,
+          "expression": "is_palindrome('A man a plan a canal Panama')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.1152639000210911,
+          "test_number": 5,
+          "expression": "is_palindrome('Was it a car or a cat I saw?')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.10894189996179193,
+          "test_number": 6,
+          "expression": "is_palindrome('')",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "merge_sort",
+      "category": "medium",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\ndef merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n\n    mid = len(arr) // 2\n    left_half = merge_sort(arr[:mid])\n    right_half = merge_sort(arr[mid:])\n\n    return merge(left_half, right_half)\n\ndef merge(left, right):\n    merged = []\n    i = j = 0\n\n    while i < len(left) and j < len(right):\n        if left[i] < right[j]:\n            merged.append(left[i])\n            i += 1\n        else:\n            merged.append(right[j])\n            j += 1\n\n    merged.extend(left[i:])\n    merged.extend(right[j:])\n\n    return merged\n```",
+      "extracted_code": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n\n    mid = len(arr) // 2\n    left_half = merge_sort(arr[:mid])\n    right_half = merge_sort(arr[mid:])\n\n    return merge(left_half, right_half)\n\ndef merge(left, right):\n    merged = []\n    i = j = 0\n\n    while i < len(left) and j < len(right):\n        if left[i] < right[j]:\n            merged.append(left[i])\n            i += 1\n        else:\n            merged.append(right[j])\n            j += 1\n\n    merged.extend(left[i:])\n    merged.extend(right[j:])\n\n    return merged",
+      "generation_seconds": 49.16916739998851,
+      "prompt_tokens": 132,
+      "completion_tokens": 146,
+      "approx_tokens_per_second": 2.969340497720816,
+      "tests_passed": 6,
+      "tests_total": 6,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.11304650001693517,
+          "test_number": 1,
+          "expression": "merge_sort([])",
+          "expected": []
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.10302450001472607,
+          "test_number": 2,
+          "expression": "merge_sort([1])",
+          "expected": [
+            1
+          ]
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08642299997154623,
+          "test_number": 3,
+          "expression": "merge_sort([3,1,2])",
+          "expected": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08754199999384582,
+          "test_number": 4,
+          "expression": "merge_sort([5,4,3,2,1])",
+          "expected": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.0859578000381589,
+          "test_number": 5,
+          "expression": "merge_sort([3,3,1,2,1])",
+          "expected": [
+            1,
+            1,
+            2,
+            3,
+            3
+          ]
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08673600002657622,
+          "test_number": 6,
+          "expression": "merge_sort([-5,2,-1,0,8])",
+          "expected": [
+            -5,
+            -1,
+            0,
+            2,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valid_parentheses",
+      "category": "medium",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\ndef valid_parentheses(s):\n    stack = []\n    matching_brackets = {')': '(', '}': '{', ']': '['}\n    \n    for char in s:\n        if char in matching_brackets.values():\n            stack.append(char)\n        elif char in matching_brackets.keys():\n            if not stack or stack.pop() != matching_brackets[char]:\n                return False\n        else:\n            return False\n    \n    return len(stack) == 0\n```",
+      "extracted_code": "def valid_parentheses(s):\n    stack = []\n    matching_brackets = {')': '(', '}': '{', ']': '['}\n    \n    for char in s:\n        if char in matching_brackets.values():\n            stack.append(char)\n        elif char in matching_brackets.keys():\n            if not stack or stack.pop() != matching_brackets[char]:\n                return False\n        else:\n            return False\n    \n    return len(stack) == 0",
+      "generation_seconds": 26.793817600002512,
+      "prompt_tokens": 123,
+      "completion_tokens": 98,
+      "approx_tokens_per_second": 3.6575601679094363,
+      "tests_passed": 7,
+      "tests_total": 7,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.11596590001136065,
+          "test_number": 1,
+          "expression": "valid_parentheses('')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.09474640002008528,
+          "test_number": 2,
+          "expression": "valid_parentheses('()')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.0843550999998115,
+          "test_number": 3,
+          "expression": "valid_parentheses('()[]{}')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08235360000981018,
+          "test_number": 4,
+          "expression": "valid_parentheses('(]')",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08314619999146089,
+          "test_number": 5,
+          "expression": "valid_parentheses('([{}])')",
+          "expected": true
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.09778980002738535,
+          "test_number": 6,
+          "expression": "valid_parentheses('([)]')",
+          "expected": false
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.0839892000076361,
+          "test_number": 7,
+          "expression": "valid_parentheses('(((')",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "group_anagrams",
+      "category": "medium",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\ndef group_anagrams(words):\n    anagram_groups = {}\n    for word in words:\n        sorted_word = ''.join(sorted(word))\n        if sorted_word not in anagram_groups:\n            anagram_groups[sorted_word] = []\n        anagram_groups[sorted_word].append(word)\n    return list(anagram_groups.values())\n```",
+      "extracted_code": "def group_anagrams(words):\n    anagram_groups = {}\n    for word in words:\n        sorted_word = ''.join(sorted(word))\n        if sorted_word not in anagram_groups:\n            anagram_groups[sorted_word] = []\n        anagram_groups[sorted_word].append(word)\n    return list(anagram_groups.values())",
+      "generation_seconds": 21.21036530000856,
+      "prompt_tokens": 135,
+      "completion_tokens": 71,
+      "approx_tokens_per_second": 3.347419952261329,
+      "tests_passed": 3,
+      "tests_total": 3,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.11471470003016293,
+          "test_number": 1,
+          "expression": "group_anagrams(['eat','tea','tan','ate','nat','bat'])",
+          "expected": [
+            [
+              "eat",
+              "tea",
+              "ate"
+            ],
+            [
+              "tan",
+              "nat"
+            ],
+            [
+              "bat"
+            ]
+          ]
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.09098069998435676,
+          "test_number": 2,
+          "expression": "group_anagrams([])",
+          "expected": []
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.07961090002208948,
+          "test_number": 3,
+          "expression": "group_anagrams(['abc'])",
+          "expected": [
+            [
+              "abc"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lru_cache",
+      "category": "hard",
+      "status": "pass",
+      "format_compliant": false,
+      "syntax_valid": true,
+      "extraction_method": "markdown",
+      "raw_response": "```python\nclass LRUCache:\n\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.cache = {}\n        self.order = []\n\n    def get(self, key):\n        if key in self.cache:\n            self.order.remove(key)\n            self.order.append(key)\n            return self.cache[key]\n        return -1\n\n    def put(self, key, value):\n        if key in self.cache:\n            self.order.remove(key)\n        elif len(self.cache) == self.capacity:\n            self.cache.pop(self.order.pop(0))\n        self.cache[key] = value\n        self.order.append(key)\n```",
+      "extracted_code": "class LRUCache:\n\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.cache = {}\n        self.order = []\n\n    def get(self, key):\n        if key in self.cache:\n            self.order.remove(key)\n            self.order.append(key)\n            return self.cache[key]\n        return -1\n\n    def put(self, key, value):\n        if key in self.cache:\n            self.order.remove(key)\n        elif len(self.cache) == self.capacity:\n            self.cache.pop(self.order.pop(0))\n        self.cache[key] = value\n        self.order.append(key)",
+      "generation_seconds": 39.46689169999445,
+      "prompt_tokens": 202,
+      "completion_tokens": 128,
+      "approx_tokens_per_second": 3.2432247508363576,
+      "tests_passed": 3,
+      "tests_total": 3,
+      "test_pass_rate": 100.0,
+      "all_tests_passed": true,
+      "error": null,
+      "test_details": [
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.11074380000354722,
+          "test_number": 1,
+          "expression": "(lambda c: (c.put(1,1), c.get(1))[-1])(LRUCache(2))",
+          "expected": 1
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.10083699994720519,
+          "test_number": 2,
+          "expression": "(lambda c: (\n                    c.put(1,1),\n                    c.put(2,2),\n                    c.get(1),\n                    c.put(3,3),\n                    c.get(2)\n                )[-1])(LRUCache(2))",
+          "expected": -1
+        },
+        {
+          "passed": true,
+          "return_code": 0,
+          "stdout": "TEST_PASS",
+          "stderr": "",
+          "timeout": false,
+          "execution_seconds": 0.08223780000116676,
+          "test_number": 3,
+          "expression": "(lambda c: (\n                    c.put(1,1),\n                    c.put(2,2),\n                    c.put(1,10),\n                    c.put(3,3),\n                    c.get(2)\n                )[-1])(LRUCache(2))",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}
